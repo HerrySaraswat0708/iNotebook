@@ -18,7 +18,7 @@ const Noteitem = (props) => {
           <span className="mx-3">
             <i className="fa fa-trash" area-hidden="true" onClick={()=>{deleteNote(note._id)}} />
           </span>
-          <img src="./edit.png" alt="..."/>
+         
         </div>
       </div>
     </div>
