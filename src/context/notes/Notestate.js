@@ -1,10 +1,20 @@
 import  { useState } from "react";
 import noteContext from "./noteContext";
-import Noteitem from "C:/Users/Akshay/Desktop/React/mynotebook/src/components/Noteitem";
+// import Noteitem from "C:/Users/Akshay/Desktop/React/mynotebook/src/components/Noteitem";
 const NoteState = (props)=>{
-    const host = "http://localhost:3000"
+    // const host = "http://localhost:3000"
+    
     const note=[]
     const [notes,setNotes] = useState(note)
+    
+    const [About,setAbout] = useState(false)
+
+    const update = ()=>{
+       setAbout(!About)
+    }
+
+
+
     const getUser = async ()=>{
       const response = await fetch(`http://localhost:3000/api/auth/getUser`,{
         method: 'POST',
@@ -62,10 +72,10 @@ const NoteState = (props)=>{
         }
        
     });
-
+   console.log(response.json())
     // Deletion from frontend code
     
-    const json = await response.json();
+    // const json = await response.json();
   
     const newNotes = notes.filter((note)=>{return note._id !== id})
     setNotes(newNotes)
@@ -112,7 +122,7 @@ const NoteState = (props)=>{
         body: JSON.stringify({title,description,tag})
         
       });
-
+  console.log(response.json())
       // Editing a note on frontend
 
       const newNotes = JSON.parse(JSON.stringify(notes))
@@ -132,7 +142,7 @@ const NoteState = (props)=>{
     
   }
   return (
-    <noteContext.Provider value={{notes,addNote,deleteNote,editNote,getNotes}}>
+    <noteContext.Provider value={{notes,addNote,deleteNote,editNote,getNotes,About,update}}>
     
         {props.children}
     </noteContext.Provider>

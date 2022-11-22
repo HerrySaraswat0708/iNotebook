@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {Link,useNavigate} from "react-router-dom";
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 const Login =  () => {
   const navigate = useNavigate()
   const [credential,setCredential] = useState({email:"",password:""})
@@ -31,7 +31,7 @@ const Login =  () => {
 
   return (
     <>
-    <Navbar login={'d-none'}/>
+    
     <div className="container my-5">
       <div className="container"style={{width:"60%",height:"100%",textAlign:"center"}}>
       <h1 style={{marginBottom:"7%"}}>iNotebook User Login</h1>

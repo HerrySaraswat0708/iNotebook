@@ -1,6 +1,5 @@
 import React,{useState} from "react";
 import {Link,useNavigate} from "react-router-dom";
-import Navbar from "./Navbar"
 export default function Registration() {
   const navigate = useNavigate()
   const [credential,setCredential] = useState({name:"",email:"",password:""})
@@ -26,7 +25,7 @@ export default function Registration() {
 }
   return (
     <>
-    <Navbar signup={'d-none'}/>
+  
       <div className="container my-5">
         <div className="container"style={{width:"60%",height:"100%",textAlign:"center"}}>
         <h1 style={{marginBottom:"7%"}}>iNotebook User Registration</h1>

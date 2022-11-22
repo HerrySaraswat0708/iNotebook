@@ -1,10 +1,10 @@
-import React,{useContext} from 'react'
-import noteContext from '../context/notes/noteContext'
+ import React from 'react'
+// import noteContext from '../context/notes/noteContext'
 
 const Noteitem = (props) => {
-    const context = useContext(noteContext);
-    const {notes,deleteNote,editNote} = context;
-  const { note,updateNote } = props;
+    // const context = useContext(noteContext);
+    // const {notes,deleteNote,editNote} = context;
+  const { note } = props;
   
   return (
     <div className="col-md-3 my-2">

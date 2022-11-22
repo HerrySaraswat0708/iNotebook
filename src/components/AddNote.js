@@ -1,6 +1,6 @@
 import React,{useContext, useState} from 'react'
 import noteContext from '../context/notes/noteContext'
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 
 const AddNote = () => {
     const context = useContext(noteContext);

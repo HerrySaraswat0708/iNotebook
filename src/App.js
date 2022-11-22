@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Registration from "./components/Registration"
@@ -14,14 +13,15 @@ export default function App() {
     <>
     <NoteState>
       <Router>
-       
+       <Navbar/>
+       <div className="container my-3">
         <Routes>
+          <Route exact path="/" element={<Home/>}/>
           <Route exact path="/login" element={<Login/>} />
           <Route exact path="/about" element={<About/>}/>
           <Route exact path="/signup" element={<Registration/>}/>
-          <Route exact path="/" element={<Home/>}/>
         </Routes>
-    
+      </div>
       </Router>
     </NoteState>
       

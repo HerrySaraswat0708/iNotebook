@@ -1,7 +1,9 @@
 import React,{useEffect} from "react";
-import {Link,Navigate,useLocation, useNavigate} from "react-router-dom";
-
+import {Link,useLocation, useNavigate} from "react-router-dom";
+// import noteContext from "../context/notes/noteContext";
 export default function Navbar(props) {
+  // const context = useContext(noteContext);
+  // const { About } = context;
   const navigate = useNavigate();
   let location = useLocation();
   useEffect(()=>{
@@ -18,7 +20,7 @@ export default function Navbar(props) {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
-    <a className="navbar-brand">iNotebook</a>
+    <a className="navbar-brand" href="?">iNotebook</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -27,14 +29,11 @@ export default function Navbar(props) {
         { localStorage.getItem('token') && <li className="nav-item">
           <Link className={`nav-link ${location.pathname==='/'?"active":""}`} aria-current="page" to='/'>Home</Link>
         </li>}
-        <li className="nav-item">
+        {localStorage.getItem('token') && <li className="nav-item">
           <Link className={`nav-link ${location.pathname==='/about'?"active":""}`} to="/about">About</Link>
-        </li>
+        </li>}
       </ul>
-      {!localStorage.getItem('token')?<form className="d-flex" role="search">
-        <Link className={`btn btn-primary mx-2 ${props.login}`} role = "button" to="/login">Login</Link>
-        <Link className={`btn btn-primary mx-2 ${props.signup}`} role ="button" to="/signup">Sign Up</Link>
-      </form>:<button className="btn btn-primary mx-2" onClick={handleLogout} role = "button" >Logout</button>}
+      {!localStorage.getItem('token')?"":<button className="btn btn-danger mx-2" onClick={handleLogout}>Logout</button>}
     </div>
   </div>
 </nav>    </>

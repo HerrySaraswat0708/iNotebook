@@ -1,9 +1,14 @@
-import React from 'react'
-import Navbar from "./Navbar"
+import React,{useContext, useEffect} from 'react'
+import noteContext from "../context/notes/noteContext";
 export default function About() {
+  const context = useContext(noteContext);
+  const { update } = context;
+  useEffect(()=>{
+    update();
+  },[])
   return (
     <>
-    <Navbar/>
+      
       <h1>About</h1>
       
       <p>
