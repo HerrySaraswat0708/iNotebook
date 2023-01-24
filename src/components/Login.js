@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 import {Link,useNavigate} from "react-router-dom";
+import Alert from './Alert';
 // import Navbar from './Navbar';
-const Login =  () => {
+const Login =  (props) => {
   const navigate = useNavigate()
   const [credential,setCredential] = useState({email:"",password:""})
   const handleSubmit = async (e)=>{
@@ -18,10 +19,11 @@ const Login =  () => {
    console.log(json)
    if(json.success){
      localStorage.setItem('token',json.authtoken)
-     navigate('/')
+     navigate('/Home')
+     alert('Logins successfull')
     }
    else{
-    alert("Invalid Credentials")
+    alert('Invalid Credential')
    }
   }
   const onChange = (e)=>{

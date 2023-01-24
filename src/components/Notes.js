@@ -22,8 +22,7 @@ const Notes = () => {
   const [note,setNote] = useState({id:"",etitle:"",edescription:"",etag:""});
   const updateNote = (currentNote) => {
     ref.current.click();
-    
-    setNote({id:currentNote._id,etitle:currentNote.title,edescription:currentNote.description,etag:currentNote.tag})
+    setNote({id:currentNote._id,etitle:currentNote.title,edescription:currentNote.description,etag:currentNote.tag});
   };
   const ref = useRef(null);
   const refClose = useRef(null);

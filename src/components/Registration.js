@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import {Link,useNavigate} from "react-router-dom";
-export default function Registration() {
+export default function Registration(props) {
   const navigate = useNavigate()
   const [credential,setCredential] = useState({name:"",email:"",password:""})
   const handleSubmit = async (e)=>{
@@ -17,7 +17,8 @@ export default function Registration() {
    console.log(json)
    
      localStorage.setItem('token',json.authtoken)
-     navigate('/login')
+     navigate('/')
+     alert('Account created successfully')
  
   }
   const onChange = (e)=>{
